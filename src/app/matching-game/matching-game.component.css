@@ -1,0 +1,20 @@
+.game-frame {
+    background-color: #f9fafb;
+    width: 440px;
+    height: 500px;
+    text-align: center;
+}
+
+.game-background {
+    background-image: linear-gradient(to bottom right, #06cabb, #a67fcc);
+    box-shadow: 10px 10px 18px -8px rgba(0,0,0,0.59);
+    width: 400px;
+    height: 400px;
+    padding: 20px 5px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.card-container {
+    padding: 0;
+}
