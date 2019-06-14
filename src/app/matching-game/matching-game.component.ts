@@ -8,6 +8,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class MatchingGameComponent implements OnInit, OnDestroy {
     gameStatus = 'STOP';
     overlay = true;
+    overlayMessage = ['Matching Game', 'Click on a Card to begin!'];
 
     score = 0;
     combo = 3;
@@ -56,6 +57,7 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
 
     onWinGame() {
         clearInterval(this.startedTimer);
+        this.overlayMessage = ['Congratulations!', 'You won the matching game.'];
         this.onToggleOverlay();
     }
 

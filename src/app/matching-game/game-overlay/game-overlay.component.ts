@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-game-overlay',
@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class GameOverlayComponent implements OnInit {
   @Output() closedSignal: EventEmitter<void> = new EventEmitter();
+  @Input() message = ['Matching Game', 'Click on a Card to begin!'];
 
   constructor() { }
 

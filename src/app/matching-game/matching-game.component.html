@@ -2,6 +2,7 @@
   <div class="game-frame">
     <app-game-overlay 
     (closedSignal)="onToggleOverlay()"
+    [message]="overlayMessage"
     *ngIf="overlay"
     ></app-game-overlay>
     <h4>Matching Game</h4>
