@@ -1,11 +1,11 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'app-matching-game',
     templateUrl: './matching-game.component.html',
     styleUrls: ['./matching-game.component.css']
 })
-export class MatchingGameComponent implements OnDestroy {
+export class MatchingGameComponent implements OnInit, OnDestroy {
     cards = [
         [0, 1, 2, 3],
         [4, 5, 6, 7],
@@ -17,6 +17,18 @@ export class MatchingGameComponent implements OnDestroy {
         secs: '00'
     };
     startedTimer: NodeJS.Timer;
+
+    ngOnInit() {
+        this.cards = this.shuffleCards(this.cards);
+    }
+
+    onStartGame() {
+        this.startTimer();
+    }
+
+    onResetGame() {
+        this.stopTimer();
+    }
 
     private startTimer() {
         clearInterval(this.startedTimer);
@@ -37,12 +49,18 @@ export class MatchingGameComponent implements OnDestroy {
         clearInterval(this.startedTimer);
     }
 
-    onStartGame() {
-        this.startTimer();
-    }
-
-    onResetGame() {
-        this.stopTimer();
+    private shuffleCards(cardArr: number[][]) {
+        const arr = [].concat(...cardArr);
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return [
+            arr.slice(0, 4),
+            arr.slice(4, 8),
+            arr.slice(8, 12),
+            arr.slice(12, 16)
+        ];
     }
 
     ngOnDestroy() {
