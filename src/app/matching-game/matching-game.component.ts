@@ -169,8 +169,8 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
         const arr = new Array(4).fill(null).map(i => {
             return new Array(4);
         });
-        for (const x of Array(4).keys()) {
-            for (const y of Array(4).keys()) {
+        for (const x of [...Array(4).keys()]) {
+            for (const y of [...Array(4).keys()]) {
                 arr[x][y] = {fixed: false, selected: false};
             }
         }
