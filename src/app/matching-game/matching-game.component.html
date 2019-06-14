@@ -1,5 +1,9 @@
 <div class="row justify-content-center">
   <div class="game-frame">
+    <app-game-overlay 
+    (closedSignal)="onToggleOverlay()"
+    *ngIf="overlay"
+    ></app-game-overlay>
     <h4>Matching Game</h4>
     <div class="container">
       <div class="row">

@@ -7,6 +7,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class MatchingGameComponent implements OnInit, OnDestroy {
     gameStatus = 'STOP';
+    overlay = true;
 
     score = 0;
     combo = 3;
@@ -31,7 +32,7 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
         mins: '0',
         secs: '00'
     };
-    startedTimer: NodeJS.Timer;
+    startedTimer;
 
     ngOnInit() {
         this.onResetGame();
@@ -55,6 +56,7 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
 
     onWinGame() {
         clearInterval(this.startedTimer);
+        this.onToggleOverlay();
     }
 
     onCardClick(x: number, y: number) {
@@ -101,6 +103,10 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
         }
     }
 
+    onToggleOverlay() {
+        this.overlay = !this.overlay;
+    }
+
     private addScore() {
         this.score += 1;
         if (this.combo < 3) {
@@ -121,7 +127,7 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
 
     private updateStars() {
         const n = this.combo;
-        this.stars = new Array(n).fill(['fas', 'star']).concat(new Array(3-n).fill(['far', 'star']));
+        this.stars = new Array(n).fill(['fas', 'star']).concat(new Array(3 - n).fill(['far', 'star']));
     }
 
     private startTimer() {

@@ -23,13 +23,15 @@ import { AppComponent } from './app.component';
 import { TestUnitComponent } from './test-unit/test-unit.component';
 import { MatchingGameComponent } from './matching-game/matching-game.component';
 import { GameCardComponent } from './matching-game/game-card/game-card.component';
+import { GameOverlayComponent } from './matching-game/game-overlay/game-overlay.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestUnitComponent,
     MatchingGameComponent,
-    GameCardComponent
+    GameCardComponent,
+    GameOverlayComponent
   ],
   imports: [
     BrowserModule,
