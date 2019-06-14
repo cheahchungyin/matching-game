@@ -6,12 +6,17 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
     styleUrls: ['./matching-game.component.css']
 })
 export class MatchingGameComponent implements OnInit, OnDestroy {
+    gameStatus = 'STOP';
+
+    selectedCard: {x: number; y: number} = null;
     cards = [
         [0, 1, 2, 3],
         [4, 5, 6, 7],
         [0, 1, 2, 3],
         [4, 5, 6, 7]
     ];
+    cardStatus: {fixed: boolean; selected: boolean}[][];
+
     timer = {
         mins: '0',
         secs: '00'
@@ -19,15 +24,59 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
     startedTimer: NodeJS.Timer;
 
     ngOnInit() {
-        this.cards = this.shuffleCards(this.cards);
+        this.onResetGame();
     }
 
     onStartGame() {
         this.startTimer();
+        this.gameStatus = 'START';
     }
 
     onResetGame() {
         this.stopTimer();
+        this.cards = this.shuffleCards(this.cards);
+        this.cardStatus = this.resetCardStatus();
+        this.gameStatus = 'STOP';
+    }
+
+    onCardClick(x: number, y: number) {
+        if (this.gameStatus !== 'START') {
+            this.onStartGame();
+        }
+        const newStatus = this.cardStatus[x][y];
+        // if the card is fixed, don't flip it and return
+        if (newStatus.fixed) { return; }
+        // else, flip the card
+        newStatus.selected = !newStatus.selected;
+        // remove from previous card
+        if (!newStatus.selected) {
+            this.selectedCard = null;
+            return;
+        }
+        // check if previous card exists,
+        if (!this.selectedCard) {
+            // if not, set this as previous card
+            this.selectedCard = {x, y};
+        } else {
+            const a = this.selectedCard;
+            // if yes, compare cards
+            if (this.cards[a.x][a.y] === this.cards[x][y]) {
+                // fix cards if true, add score
+                this.cardStatus[a.x][a.y].fixed = true;
+                this.cardStatus[x][y].fixed = true;
+            } else {
+                // else flip the cards back, minus score
+                this.cardStatus[a.x][a.y].fixed = true;
+                this.cardStatus[x][y].fixed = true;
+                setTimeout(() => {
+                    this.cardStatus[a.x][a.y].selected = false;
+                    this.cardStatus[x][y].selected = false;
+                    this.cardStatus[a.x][a.y].fixed = false;
+                    this.cardStatus[x][y].fixed = false;
+                }, 800);
+            }
+            this.selectedCard = null;
+        }
     }
 
     private startTimer() {
@@ -61,6 +110,18 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
             arr.slice(8, 12),
             arr.slice(12, 16)
         ];
+    }
+
+    private resetCardStatus() {
+        const arr = new Array(4).fill(null).map(i => {
+            return new Array(4);
+        });
+        for (const x of Array(4).keys()) {
+            for (const y of Array(4).keys()) {
+                arr[x][y] = {fixed: false, selected: false};
+            }
+        }
+        return arr;
     }
 
     ngOnDestroy() {

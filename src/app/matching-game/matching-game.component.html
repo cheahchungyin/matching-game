@@ -25,9 +25,13 @@
     </div>
     <div class="game-background">
       <div class="container-fluid">
-        <div class="row" *ngFor="let cardRow of cards">
-          <div class="col-3 card-container" *ngFor="let card of cardRow">
-              <app-game-card [symbolIndex]="card"></app-game-card>
+        <div class="row" *ngFor="let cardRow of cards; let x = index;">
+          <div class="col-3 card-container" *ngFor="let card of cardRow; let y = index;">
+              <app-game-card 
+              [symbolIndex]="card"
+              [selected]="cardStatus[x][y].selected"
+              (click)="onCardClick(x,y)"
+              ></app-game-card>
           </div>
         </div>
       </div>

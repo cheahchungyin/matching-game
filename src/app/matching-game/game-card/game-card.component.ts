@@ -7,8 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GameCardComponent implements OnInit {
   @Input() symbolIndex: number;
-  @Input() fixed = false;
-  selected = false;
+  @Input() selected = false;
   symbols = [
     ['fas', 'anchor'],
     ['far', 'paper-plane'],
@@ -23,11 +22,5 @@ export class GameCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onClick() {
-    if (!this.fixed) {
-      this.selected = !this.selected;
-    }
   }
 }
