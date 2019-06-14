@@ -52,6 +52,9 @@
 
 /* Style the back side */
 .flip-card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #02ccba;
   color: white;
   transform: rotateY(180deg);

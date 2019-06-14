@@ -6,7 +6,12 @@ import { Component, OnDestroy } from '@angular/core';
     styleUrls: ['./matching-game.component.css']
 })
 export class MatchingGameComponent implements OnDestroy {
-    cards = [];
+    cards = [
+        [0, 1, 2, 3],
+        [4, 5, 6, 7],
+        [0, 1, 2, 3],
+        [4, 5, 6, 7]
+    ];
     timer = {
         mins: '0',
         secs: '00'

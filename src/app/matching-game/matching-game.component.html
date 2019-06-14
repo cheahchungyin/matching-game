@@ -25,66 +25,11 @@
     </div>
     <div class="game-background">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
+        <div class="row" *ngFor="let cardRow of cards">
+          <div class="col-3 card-container" *ngFor="let card of cardRow">
+              <app-game-card [symbolIndex]="card"></app-game-card>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-          <div class="col-3 card-container">
-              <app-game-card></app-game-card>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
