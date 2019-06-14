@@ -8,6 +8,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class MatchingGameComponent implements OnInit, OnDestroy {
     gameStatus = 'STOP';
 
+    score = 0;
+    combo = 3;
+    moves = 0;
+
     selectedCard: {x: number; y: number} = null;
     cards = [
         [0, 1, 2, 3],
@@ -16,6 +20,12 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
         [4, 5, 6, 7]
     ];
     cardStatus: {fixed: boolean; selected: boolean}[][];
+
+    stars = [
+        ['fas', 'star'],
+        ['fas', 'star'],
+        ['fas', 'star']
+    ];
 
     timer = {
         mins: '0',
@@ -37,6 +47,14 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
         this.cards = this.shuffleCards(this.cards);
         this.cardStatus = this.resetCardStatus();
         this.gameStatus = 'STOP';
+        this.score = 0;
+        this.combo = 3;
+        this.moves = 0;
+        this.updateStars();
+    }
+
+    onWinGame() {
+        clearInterval(this.startedTimer);
     }
 
     onCardClick(x: number, y: number) {
@@ -48,6 +66,7 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
         if (newStatus.fixed) { return; }
         // else, flip the card
         newStatus.selected = !newStatus.selected;
+        this.playAudio();
         // remove from previous card
         if (!newStatus.selected) {
             this.selectedCard = null;
@@ -59,13 +78,16 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
             this.selectedCard = {x, y};
         } else {
             const a = this.selectedCard;
-            // if yes, compare cards
+            // if yes, increment one move and compare cards
+            this.moves += 1;
             if (this.cards[a.x][a.y] === this.cards[x][y]) {
                 // fix cards if true, add score
+                this.addScore();
                 this.cardStatus[a.x][a.y].fixed = true;
                 this.cardStatus[x][y].fixed = true;
             } else {
                 // else flip the cards back, minus score
+                this.minusScore();
                 this.cardStatus[a.x][a.y].fixed = true;
                 this.cardStatus[x][y].fixed = true;
                 setTimeout(() => {
@@ -77,6 +99,29 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
             }
             this.selectedCard = null;
         }
+    }
+
+    private addScore() {
+        this.score += 1;
+        if (this.combo < 3) {
+            this.combo += 1;
+            this.updateStars();
+        }
+        if (this.score >= 8) {
+            this.onWinGame();
+        }
+    }
+
+    private minusScore() {
+        if (this.combo > 0) {
+            this.combo -= 1;
+            this.updateStars();
+        }
+    }
+
+    private updateStars() {
+        const n = this.combo;
+        this.stars = new Array(n).fill(['fas', 'star']).concat(new Array(3-n).fill(['far', 'star']));
     }
 
     private startTimer() {
@@ -122,6 +167,13 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
             }
         }
         return arr;
+    }
+
+    private playAudio() {
+        const audio = new Audio();
+        audio.src = '/assets/audios/card-flip-start.wav';
+        audio.load();
+        audio.play();
     }
 
     ngOnDestroy() {
