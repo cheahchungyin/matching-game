@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-card.component.css']
 })
 export class GameCardComponent implements OnInit {
+  selected = false;
+
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelect() {
+    this.selected = true;
+  }
 }

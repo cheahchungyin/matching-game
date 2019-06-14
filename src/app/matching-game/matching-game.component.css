@@ -8,13 +8,15 @@
 .game-background {
     background-image: linear-gradient(to bottom right, #06cabb, #a67fcc);
     box-shadow: 10px 10px 18px -8px rgba(0,0,0,0.59);
-    width: 400px;
-    height: 400px;
-    padding: 20px 5px;
     border-radius: 10px;
     margin: auto;
+
+    width: 400px;
+    height: 400px;
+    padding: 10px 5px;
 }
 
 .card-container {
     padding: 0;
+    margin: 10px auto;
 }

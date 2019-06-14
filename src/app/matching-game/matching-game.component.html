@@ -1,7 +1,28 @@
 <div class="row justify-content-center">
   <div class="game-frame">
     <h4>Matching Game</h4>
-    <p>Some description...</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <fa-icon [icon]="['fas', 'star']"></fa-icon>
+          <fa-icon [icon]="['far', 'star']"></fa-icon>
+          <fa-icon [icon]="['far', 'star']"></fa-icon>
+        </div>
+        <div class="col-3">
+          <p>{{ timer.mins }}:{{ timer.secs }}</p>
+        </div>
+        <div class="col-3">
+          <p>8 Moves</p>
+        </div>
+        <div class="col-3">
+          <fa-icon 
+          [icon]="['fas', 'redo-alt']" 
+          style="cursor:pointer"
+          (click)="onResetGame()"
+          ></fa-icon>
+        </div>
+      </div>
+    </div>
     <div class="game-background">
       <div class="container-fluid">
         <div class="row">
@@ -18,6 +39,52 @@
               <app-game-card></app-game-card>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+          <div class="col-3 card-container">
+              <app-game-card></app-game-card>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

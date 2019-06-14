@@ -1,8 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'app-matching-game',
     templateUrl: './matching-game.component.html',
     styleUrls: ['./matching-game.component.css']
 })
-export class MatchingGameComponent {}
+export class MatchingGameComponent implements OnDestroy {
+    cards = [];
+    timer = {
+        mins: '0',
+        secs: '00'
+    };
+    startedTimer: NodeJS.Timer;
+
+    private startTimer() {
+        clearInterval(this.startedTimer);
+        this.startedTimer = setInterval(() => {
+            const secs = this.timer.secs;
+            if (+secs < 59) {
+                this.timer.secs = String(+secs + 1).padStart(2, '0');
+            } else {
+                this.timer.secs = '00';
+                this.timer.mins = String(+this.timer.mins + 1);
+            }
+        }, 1000);
+    }
+
+    private stopTimer() {
+        this.timer.mins = '0';
+        this.timer.secs = '00';
+        clearInterval(this.startedTimer);
+    }
+
+    onStartGame() {
+        this.startTimer();
+    }
+
+    onResetGame() {
+        this.stopTimer();
+    }
+
+    ngOnDestroy() {
+        this.stopTimer();
+    }
+}

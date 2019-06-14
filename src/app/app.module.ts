@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as fasStar, faRedoAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { AppComponent } from './app.component';
 import { TestUnitComponent } from './test-unit/test-unit.component';
 import { MatchingGameComponent } from './matching-game/matching-game.component';
@@ -14,9 +19,14 @@ import { GameCardComponent } from './matching-game/game-card/game-card.component
     GameCardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    library.add(fasStar, farStar, faRedoAlt);
+  }
+}
