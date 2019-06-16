@@ -2,8 +2,9 @@
     background-color: #f9fafb;
     width: 440px;
     height: 500px;
+    border-radius: 5px;
     text-align: center;
-    position: relative;
+    position: fixed;
 }
 
 .game-background {

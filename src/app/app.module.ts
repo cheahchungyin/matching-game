@@ -24,6 +24,8 @@ import { TestUnitComponent } from './test-unit/test-unit.component';
 import { MatchingGameComponent } from './matching-game/matching-game.component';
 import { GameCardComponent } from './matching-game/game-card/game-card.component';
 import { GameOverlayComponent } from './matching-game/game-overlay/game-overlay.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { GameSettingsComponent } from './shared/game-settings/game-settings.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { GameOverlayComponent } from './matching-game/game-overlay/game-overlay.
     TestUnitComponent,
     MatchingGameComponent,
     GameCardComponent,
-    GameOverlayComponent
+    GameOverlayComponent,
+    NavbarComponent,
+    GameSettingsComponent
   ],
   imports: [
     BrowserModule,
