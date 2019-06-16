@@ -16,7 +16,8 @@ import {
   faBicycle,
   faWalking,
   faBus,
-  faUserSecret
+  faUserSecret,
+  faCog
 } from '@fortawesome/free-solid-svg-icons';
 
 import { AppComponent } from './app.component';
@@ -57,7 +58,8 @@ export class AppModule {
       faBicycle,
       faWalking,
       faBus,
-      faUserSecret
+      faUserSecret,
+      faCog
     );
   }
 }

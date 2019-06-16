@@ -1,0 +1,12 @@
+.settings-bar {
+  color: white;
+  font-size: 1.25rem;
+}
+
+.settings-component {
+  cursor: pointer;
+}
+
+.settings-component:hover {
+  color: #989695;
+}
