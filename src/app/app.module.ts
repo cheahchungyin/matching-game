@@ -17,7 +17,10 @@ import {
   faWalking,
   faBus,
   faUserSecret,
-  faCog
+  faCog,
+  faExpandArrowsAlt,
+  faArrowsAltH,
+  faShareAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 import { AppComponent } from './app.component';
@@ -59,7 +62,10 @@ export class AppModule {
       faWalking,
       faBus,
       faUserSecret,
-      faCog
+      faCog,
+      faExpandArrowsAlt,
+      faArrowsAltH,
+      faShareAlt
     );
   }
 }

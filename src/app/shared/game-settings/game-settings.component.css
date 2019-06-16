@@ -10,3 +10,11 @@
 .settings-component:hover {
   color: #989695;
 }
+
+.settings-hidden {
+  visibility: hidden;
+}
+
+.settings-bar:hover .settings-hidden {
+  visibility: visible;
+}
