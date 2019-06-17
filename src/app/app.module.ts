@@ -30,6 +30,8 @@ import { GameCardComponent } from './matching-game/game-card/game-card.component
 import { GameOverlayComponent } from './matching-game/game-overlay/game-overlay.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GameSettingsComponent } from './shared/game-settings/game-settings.component';
+import { AuthComponent } from './auth/auth.component';
+import { PlayMenuComponent } from './play/play-menu/play-menu.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { GameSettingsComponent } from './shared/game-settings/game-settings.comp
     GameCardComponent,
     GameOverlayComponent,
     NavbarComponent,
-    GameSettingsComponent
+    GameSettingsComponent,
+    AuthComponent,
+    PlayMenuComponent
   ],
   imports: [
     BrowserModule,
