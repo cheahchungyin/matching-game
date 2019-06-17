@@ -25,9 +25,9 @@ import {
 
 import { AppComponent } from './app.component';
 import { TestUnitComponent } from './test-unit/test-unit.component';
-import { MatchingGameComponent } from './matching-game/matching-game.component';
-import { GameCardComponent } from './matching-game/game-card/game-card.component';
-import { GameOverlayComponent } from './matching-game/game-overlay/game-overlay.component';
+import { MatchingGameComponent } from './play/games/matching-game/matching-game.component';
+import { GameCardComponent } from './play/games/matching-game/game-card/game-card.component';
+import { GameOverlayComponent } from './play/games/matching-game/game-overlay/game-overlay.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GameSettingsComponent } from './shared/game-settings/game-settings.component';
 import { AuthComponent } from './auth/auth.component';
