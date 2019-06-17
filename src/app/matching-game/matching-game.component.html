@@ -2,7 +2,7 @@
   <div class="game-frame-inner">
     <app-game-overlay (closedSignal)="onToggleOverlay()" [message]="overlayMessage" *ngIf="overlay"></app-game-overlay>
     <h4>Matching Game</h4>
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="col-3">
           <fa-icon *ngFor="let star of stars" [icon]="star"></fa-icon>
@@ -16,6 +16,20 @@
         <div class="col-3">
           <fa-icon [icon]="['fas', 'redo-alt']" style="cursor:pointer" (click)="onResetGame()"></fa-icon>
         </div>
+      </div>
+    </div> -->
+    <div class="descriptions-container">
+      <div class="description">
+        <fa-icon *ngFor="let star of stars" [icon]="star"></fa-icon>
+      </div>
+      <div class="description">
+        <p>{{ timer.mins }}:{{ timer.secs }}</p>
+      </div>
+      <div class="description">
+        <p>{{ this.moves }} Moves</p>
+      </div>
+      <div class="description">
+        <fa-icon [icon]="['fas', 'redo-alt']" style="cursor:pointer" (click)="onResetGame()"></fa-icon>
       </div>
     </div>
     <div class="game-background">
@@ -38,4 +52,4 @@
     </div>
   </div>
 </div>
-<app-game-settings></app-game-settings>
+<app-game-settings [ngStyle]="{'font-size': appFontSize}"></app-game-settings>

@@ -1,3 +1,7 @@
+h5 {
+  font-size: 1.25em;
+}
+
 #overlay {
   position: absolute; /* Sit on top of the page content */
   display: block; /* Hidden by default */
