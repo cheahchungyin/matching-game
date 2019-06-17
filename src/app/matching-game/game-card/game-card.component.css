@@ -6,8 +6,8 @@
   background-color: transparent;
   width: 76.923%;
   height: 100%;
-  border-radius: 8px;
-  /* border: 1px solid #f1f1f1; */
+  /* border-radius: 8px; */
+  border-radius: 10.666%;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   margin: auto;
   cursor: pointer;
@@ -34,7 +34,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  /* border-radius: 8px; */
+  border-radius: 10.666%;
   backface-visibility: hidden;
 }
 
