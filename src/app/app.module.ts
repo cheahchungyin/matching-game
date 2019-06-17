@@ -23,6 +23,8 @@ import {
   faShareAlt
 } from '@fortawesome/free-solid-svg-icons';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { TestUnitComponent } from './test-unit/test-unit.component';
 import { MatchingGameComponent } from './play/games/matching-game/matching-game.component';
@@ -32,6 +34,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GameSettingsComponent } from './shared/game-settings/game-settings.component';
 import { AuthComponent } from './auth/auth.component';
 import { PlayMenuComponent } from './play/play-menu/play-menu.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +46,13 @@ import { PlayMenuComponent } from './play/play-menu/play-menu.component';
     NavbarComponent,
     GameSettingsComponent,
     AuthComponent,
-    PlayMenuComponent
+    PlayMenuComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
