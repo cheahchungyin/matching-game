@@ -7,6 +7,10 @@
     position: relative; 
 } */
 
+h4 {
+    font-size: 1.5em;
+}
+
 .game-frame-outer {
     background-color: #f9fafb;
     max-width: 440px;
@@ -15,6 +19,7 @@
     border-radius: 5px;
     text-align: center;
     position: relative; 
+    font-size: 1rem;
 }
 
 .game-frame-outer:after {

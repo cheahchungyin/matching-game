@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-matching-game',
@@ -6,6 +6,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
     styleUrls: ['./matching-game.component.css']
 })
 export class MatchingGameComponent implements OnInit, OnDestroy {
+    @ViewChild('appScreen', {static: false}) appScreen: ElementRef;
+    appScreenSize: number;
+    appFontSize: string;
+    appScreenChecker;
+
     gameStatus = 'STOP';
     overlay = true;
     overlayMessage = ['Matching Game', 'Click on a Card to begin!'];
@@ -37,6 +42,7 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.onResetGame();
+        this.startScreenUpdater();
     }
 
     onStartGame() {
@@ -120,6 +126,16 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
         }
     }
 
+    private startScreenUpdater() {
+        clearInterval(this.appScreenChecker);
+        this.appScreenChecker = setInterval(() => {
+            if (this.appScreen) {
+                this.appScreenSize = this.appScreen.nativeElement.offsetWidth;
+                this.appFontSize = String(this.appScreenSize / 440) + 'rem';
+            }
+        }, 200);
+    }
+
     private minusScore() {
         if (this.combo > 0) {
             this.combo -= 1;
@@ -186,5 +202,6 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.stopTimer();
+        clearInterval(this.appScreenChecker);
     }
 }

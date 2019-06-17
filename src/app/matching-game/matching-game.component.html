@@ -1,26 +1,25 @@
-<div class="row justify-content-center">
-  <div class="game-frame-outer">
-    <div class="game-frame-inner">
-      <app-game-overlay (closedSignal)="onToggleOverlay()" [message]="overlayMessage" *ngIf="overlay"></app-game-overlay>
-      <h4>Matching Game</h4>
-      <div class="container">
-        <div class="row">
-          <div class="col-3">
-            <fa-icon *ngFor="let star of stars" [icon]="star"></fa-icon>
-          </div>
-          <div class="col-3">
-            <p>{{ timer.mins }}:{{ timer.secs }}</p>
-          </div>
-          <div class="col-3">
-            <p>{{ this.moves }} Moves</p>
-          </div>
-          <div class="col-3">
-            <fa-icon [icon]="['fas', 'redo-alt']" style="cursor:pointer" (click)="onResetGame()"></fa-icon>
-          </div>
+<div class="game-frame-outer" #appScreen [ngStyle]="{'font-size': appFontSize}">
+  <div class="game-frame-inner">
+    <app-game-overlay (closedSignal)="onToggleOverlay()" [message]="overlayMessage" *ngIf="overlay"></app-game-overlay>
+    <h4>Matching Game</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <fa-icon *ngFor="let star of stars" [icon]="star"></fa-icon>
+        </div>
+        <div class="col-3">
+          <p>{{ timer.mins }}:{{ timer.secs }}</p>
+        </div>
+        <div class="col-3">
+          <p>{{ this.moves }} Moves</p>
+        </div>
+        <div class="col-3">
+          <fa-icon [icon]="['fas', 'redo-alt']" style="cursor:pointer" (click)="onResetGame()"></fa-icon>
         </div>
       </div>
-      <div class="game-background">
-        <!-- <div class="container-fluid">
+    </div>
+    <div class="game-background">
+      <!-- <div class="container-fluid">
           <div class="row" *ngFor="let cardRow of cards; let x = index;">
             <div class="col-3 card-container" *ngFor="let card of cardRow; let y = index;">
               <app-game-card [symbolIndex]="card" [selected]="cardStatus[x][y].selected" (click)="onCardClick(x,y)">
@@ -28,16 +27,15 @@
             </div>
           </div>
         </div> -->
-        <div class="cards-container">
-            <div class="cards-row" *ngFor="let cardRow of cards; let x = index;">
-              <div class="card-container" *ngFor="let card of cardRow; let y = index;">
-                <app-game-card [symbolIndex]="card" [selected]="cardStatus[x][y].selected" (click)="onCardClick(x,y)">
-                </app-game-card>
-              </div>
-            </div>
+      <div class="cards-container">
+        <div class="cards-row" *ngFor="let cardRow of cards; let x = index;">
+          <div class="card-container" *ngFor="let card of cardRow; let y = index;">
+            <app-game-card [symbolIndex]="card" [selected]="cardStatus[x][y].selected" (click)="onCardClick(x,y)">
+            </app-game-card>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <app-game-settings></app-game-settings>
 </div>
+<app-game-settings></app-game-settings>
