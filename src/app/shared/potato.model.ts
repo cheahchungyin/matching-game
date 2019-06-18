@@ -11,6 +11,7 @@ export class Potato {
 
   constructor(
     public name: string,
+    public creator: string,
     public description: string = '',
     public path: string = '',
     public category: string = '',
@@ -40,7 +41,7 @@ export class Potato {
 
   // ratings
   get rating() {
-    return this.privateRating;
+    return Math.round(this.privateRating);
   }
 
   setRating(value: number) {

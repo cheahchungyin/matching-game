@@ -8,6 +8,10 @@ import { Potato } from '../../../../shared/potato.model';
 })
 export class PlayMenuItemComponent implements OnInit {
   @Input() potato: Potato;
+  categoryIcons = {
+    Games: ['fas', 'dice'],
+    Utilities: ['fas', 'calculator']
+  };
 
   constructor() { }
 

@@ -1,6 +1,30 @@
-<div>
-  <a routerLink="/play/matching-game">
-    {{ potato.name }}
+<div class="dull">
+  <a class="title" [routerLink]="potato.path">
+    <fa-icon [icon]="categoryIcons[potato.category]"></fa-icon> 
+    {{ potato.name }} 
+    <span *ngIf="potato.status!==Release">[{{ potato.status}}]&emsp;</span>
+    <fa-icon *ngIf="potato.access==='Private'" [icon]="['fas', 'user-lock']"></fa-icon>
   </a>
+  <div class="row desc">
+    <div class="col-md-3">
+      <fa-icon [icon]="[potato.rating > i? 'fas': 'far', 'star']" *ngFor="let i of [0,1,2,3,4]"></fa-icon>
+    </div>
+    <div class="col-md-3">
+      {{ potato.viewCount }} view{{potato.viewCount > 1 ? 's': ''}}
+    </div>
+    <div class="col-md-3">
+      By : {{ potato.creator }}
+    </div>
+    <div class="col-md-3">
+      Client : {{ potato.client }}
+    </div>
+    <div class="col-md-3">
+      {{ potato.date | date: 'mediumDate'}}
+    </div>
+  </div>
+  <br>
+  <p>
+    {{ potato.description }}
+  </p>
 </div>
 <hr>

@@ -20,7 +20,10 @@ import {
   faCog,
   faExpandArrowsAlt,
   faArrowsAltH,
-  faShareAlt
+  faShareAlt,
+  faCalculator,
+  faDice,
+  faUserLock
 } from '@fortawesome/free-solid-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -87,7 +90,10 @@ export class AppModule {
       faCog,
       faExpandArrowsAlt,
       faArrowsAltH,
-      faShareAlt
+      faShareAlt,
+      faCalculator,
+      faDice,
+      faUserLock
     );
   }
 }
