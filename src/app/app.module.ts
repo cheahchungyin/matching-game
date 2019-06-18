@@ -37,6 +37,11 @@ import { GameSettingsComponent } from './shared/game-settings/game-settings.comp
 import { AuthComponent } from './auth/auth.component';
 import { PlayMenuComponent } from './play/play-menu/play-menu.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { FooterComponent } from './footer/footer.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { PlayMenuFilterComponent } from './play/play-menu/play-menu-filter/play-menu-filter.component';
+import { PlayMenuListComponent } from './play/play-menu/play-menu-list/play-menu-list.component';
+import { PlayMenuItemComponent } from './play/play-menu/play-menu-list/play-menu-item/play-menu-item.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,12 @@ import { HomepageComponent } from './homepage/homepage.component';
     AuthComponent,
     PlayMenuComponent,
     HomepageComponent,
-    DropdownDirective
+    DropdownDirective,
+    FooterComponent,
+    ErrorPageComponent,
+    PlayMenuFilterComponent,
+    PlayMenuListComponent,
+    PlayMenuItemComponent
   ],
   imports: [
     BrowserModule,
