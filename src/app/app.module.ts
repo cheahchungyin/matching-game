@@ -25,6 +25,8 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { DropdownDirective } from './shared/directives/dropdown.directive';
+
 import { AppComponent } from './app.component';
 import { TestUnitComponent } from './test-unit/test-unit.component';
 import { MatchingGameComponent } from './play/games/matching-game/matching-game.component';
@@ -47,7 +49,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     GameSettingsComponent,
     AuthComponent,
     PlayMenuComponent,
-    HomepageComponent
+    HomepageComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
