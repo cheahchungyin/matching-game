@@ -40,8 +40,19 @@
           </li>
         </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Find Potatoes" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input 
+        [(ngModel)]="query"
+        name="query"
+        class="form-control mr-sm-2" 
+        type="search" 
+        placeholder="Find Potatoes" 
+        aria-label="Search">
+        <button
+        routerLink="/play"
+        [queryParams]="{query: query}"
+        class="btn btn-outline-success my-2 my-sm-0" 
+        type="button"
+        >Search</button>
       </form>
     </div>
   </nav>

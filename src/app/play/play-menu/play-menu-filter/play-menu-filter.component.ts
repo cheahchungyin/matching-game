@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { PotatoService, PotatoFilter } from '../../../shared/potato.service';
-import { NgForm } from '@angular/forms';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-play-menu-filter',
@@ -19,9 +20,14 @@ export class PlayMenuFilterComponent implements OnInit, OnDestroy {
   potatoFilter: PotatoFilter;
   subscription: Subscription;
 
-  constructor(private potatoService: PotatoService) { }
+  constructor(private potatoService: PotatoService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe((queryParams) => {
+      if (queryParams.hasOwnProperty('query')) {
+        this.query = queryParams.query;
+      }
+    });
     this.subscription = this.filterForm.valueChanges.subscribe((filter) => {
       this.potatoFilter = {
         filters: [
