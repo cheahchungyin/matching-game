@@ -2,23 +2,21 @@
   <a class="title" [routerLink]="potato.path">
     <fa-icon [icon]="categoryIcons[potato.category]"></fa-icon> 
     {{ potato.name }} 
-    <span *ngIf="potato.status!==Release">[{{ potato.status}}]&emsp;</span>
+    <span *ngIf="potato.status!=='Release'">[{{ potato.status }}]</span>
+    &nbsp;
     <fa-icon *ngIf="potato.access==='Private'" [icon]="['fas', 'user-lock']"></fa-icon>
   </a>
   <div class="row desc">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-6">
       <fa-icon [icon]="[potato.rating > i? 'fas': 'far', 'star']" *ngFor="let i of [0,1,2,3,4]"></fa-icon>
     </div>
-    <div class="col-md-3">
-      {{ potato.viewCount }} view{{potato.viewCount > 1 ? 's': ''}}
+    <div class="col-md-3 col-sm-6">
+      {{ potato.viewCount | pluralize: 'view': 'views'}}
     </div>
-    <div class="col-md-3">
-      By : {{ potato.creator }}
+    <div class="col-md-3 col-sm-6">
+      {{ potato.creator }} | {{ potato.client }}
     </div>
-    <div class="col-md-3">
-      Client : {{ potato.client }}
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-6">
       {{ potato.date | date: 'mediumDate'}}
     </div>
   </div>

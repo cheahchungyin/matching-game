@@ -24,10 +24,22 @@ export class PotatoService {
       'Mars Photo Search API',
       'Chung yin',
       'An application that provides users with the ability to search for photos taken by NASA\'s Curiosity Mars rover.',
-      '/play/matching-game',
+      '/play',
       'Utilities',
       'Pre-alpha',
       'Chingu Voyage',
+      'Private',
+      [],
+      new Date()
+    ),
+    new Potato(
+      'Box Packing Calculator',
+      'Chung yin',
+      'This calculator computes the best combination for items of different sizes and weights to be packed into a finite number of boxes.',
+      '/play',
+      'Utilities',
+      'Release',
+      'Mom',
       'Private',
       [],
       new Date()

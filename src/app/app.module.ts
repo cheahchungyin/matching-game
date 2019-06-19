@@ -45,6 +45,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { PlayMenuFilterComponent } from './play/play-menu/play-menu-filter/play-menu-filter.component';
 import { PlayMenuListComponent } from './play/play-menu/play-menu-list/play-menu-list.component';
 import { PlayMenuItemComponent } from './play/play-menu/play-menu-list/play-menu-item/play-menu-item.component';
+import { PluralizePipe } from './shared/pipes/pluralize.pipe';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { PlayMenuItemComponent } from './play/play-menu/play-menu-list/play-menu
     ErrorPageComponent,
     PlayMenuFilterComponent,
     PlayMenuListComponent,
-    PlayMenuItemComponent
+    PlayMenuItemComponent,
+    PluralizePipe
   ],
   imports: [
     BrowserModule,
