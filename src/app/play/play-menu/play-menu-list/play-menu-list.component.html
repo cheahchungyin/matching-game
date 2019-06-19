@@ -1,4 +1,4 @@
-<p class="dull">{{ potatoesCount | pluralize: 'Potato': 'Potatoes'}} Found!</p>
+<p class="dull">{{ filteredPotatoesCount | pluralize: 'Potato': 'Potatoes'}} Found!</p>
 <app-play-menu-item 
 *ngFor="let potato of potatoes" 
 [potato]="potato"></app-play-menu-item>

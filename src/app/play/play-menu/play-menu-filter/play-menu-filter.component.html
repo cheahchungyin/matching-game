@@ -1,51 +1,74 @@
 <div class="container-fluid filter-container py-2">
-  <form>
+  <form #filterForm="ngForm">
     <div class="form-group row">
       <div class="col-md-12">
-        <input class="form-control form-control-sm" type="text">
+        <input 
+        [(ngModel)]="query"
+        name="query"
+        class="form-control form-control-sm" 
+        type="text"
+        >
       </div>
     </div>
     <hr>
     <div class="form-group row">
       <label class="col-md-5 col-form-label" for="sortBy">Sort by:</label>
       <div class="col-md-7">
-        <select class="form-control form-control-sm" id="sortBy">
-          <option>Date</option>
-          <option>View count</option>
-          <option>Rating</option>
+        <select 
+        [(ngModel)]="sortBy"
+        name="sortBy"
+        class="form-control form-control-sm" 
+        id="sortBy">
+          <option value="">-</option>
+          <option value="name">Name</option>
+          <option value="date">Date</option>
+          <option value="viewCount">View count</option>
+          <option value="rating">Rating</option>
         </select>
       </div>
     </div>
     <div class="form-group row">
       <label class="col-md-5 col-form-label" for="sortBy">Category:</label>
       <div class="col-md-7">
-        <select class="form-control form-control-sm" id="sortBy">
-          <option>All</option>
-          <option>Games</option>
-          <option>Utilities</option>
+        <select 
+        [(ngModel)]="category"
+        name="category"
+        class="form-control form-control-sm" 
+        id="sortBy">
+          <option value="">-</option>
+          <option value="Games">Games</option>
+          <option value="Utilities">Utilities</option>
         </select>
       </div>
     </div>
     <div class="form-group row">
       <label class="col-md-5 col-form-label" for="sortBy">Status:</label>
       <div class="col-md-7">
-        <select class="form-control form-control-sm" id="sortBy">
-          <option>Release</option>
-          <option>Beta</option>
-          <option>Alpha</option>
-          <option>Pre-alpha</option>
-          <option>All</option>
+        <select 
+        [(ngModel)]="status"
+        name="status"
+        class="form-control form-control-sm" 
+        id="sortBy">
+          <option value="">-</option>
+          <option value="Release">Release</option>
+          <option value="Beta">Beta</option>
+          <option value="Alpha">Alpha</option>
+          <option value="Pre-alpha">Pre-alpha</option>
         </select>
       </div>
     </div>
     <div class="form-group row">
       <label class="col-md-5 col-form-label" for="sortBy">Access:</label>
       <div class="col-md-7">
-        <select class="form-control form-control-sm" id="sortBy">
-          <option>Public</option>
-          <option>Private</option>
-          <option>My Projects</option>
-          <option>All</option>
+        <select 
+        [(ngModel)]="access"
+        name="access"
+        class="form-control form-control-sm" 
+        id="sortBy">
+          <option value="">-</option>
+          <option value="Public">Public</option>
+          <option value="Private">Private</option>
+          <option value="My Projects">My Projects</option>
         </select>
       </div>
     </div>

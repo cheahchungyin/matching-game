@@ -44,6 +44,10 @@ export class Potato {
     return Math.round(this.privateRating);
   }
 
+  get rawRating() {
+    return this.privateRating;
+  }
+
   setRating(value: number) {
     this.privateRating = value;
   }
