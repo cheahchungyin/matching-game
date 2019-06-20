@@ -9,6 +9,12 @@ hr {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(69, 70, 72), rgba(255, 255, 255, 0));
 }
 
+
+/* Change font styles */
 .dull {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.white {
+  color: white;
 }

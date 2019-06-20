@@ -1,0 +1,20 @@
+.homepage {
+  max-width: 992px;
+  margin: auto;
+}
+
+#title-section {
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  margin-right: 10px;
+  cursor: context-menu;
+}
+
+.title-img {
+  border-radius: 5px;
+}
