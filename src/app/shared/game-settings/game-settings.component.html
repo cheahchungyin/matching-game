@@ -1,10 +1,10 @@
 <div class="settings-bar ml-1">
   <fa-icon [icon]="['fas','cog']" class="settings-component"></fa-icon>
   <div class="settings-hidden">
-    <fa-icon [icon]="['fas','arrows-alt-h']" class="settings-component"></fa-icon>
+    <fa-icon [icon]="['fas','arrows-alt-h']" class="settings-component" (mousedown)="onExpand($event)"></fa-icon>
     <br>
     <fa-icon [icon]="['fas','expand-arrows-alt']" class="settings-component"></fa-icon>
     <br>
-    <fa-icon [icon]="['fas','share-alt']" class="settings-component"></fa-icon>
+    <fa-icon [icon]="['fas','share-alt']" class="settings-component" (click)="onCopyUrl()"></fa-icon>
   </div>
 </div>

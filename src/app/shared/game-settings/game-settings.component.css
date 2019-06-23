@@ -1,6 +1,13 @@
 .settings-bar {
+  display: none;
   color: white;
   font-size: 1.25em;
+}
+
+@media only screen and (min-width: 500px) {
+  .settings-bar {
+      display: block;
+  }
 }
 
 .settings-component {
@@ -18,3 +25,12 @@
 .settings-bar:hover .settings-hidden {
   visibility: visible;
 }
+
+/* .canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+} */

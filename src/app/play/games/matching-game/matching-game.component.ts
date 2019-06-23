@@ -9,6 +9,8 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
     @ViewChild('appScreen', {static: false}) appScreen: ElementRef;
     appScreenSize: number;
     appFontSize: string;
+    appWidth: string;
+    compiledWidth = 0;
     appScreenChecker;
 
     gameStatus = 'STOP';
@@ -113,6 +115,13 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
 
     onToggleOverlay() {
         this.overlay = !this.overlay;
+    }
+
+    onSizeChanged(xOffset) {
+        if (this.appScreenSize > 400 || xOffset > 0) {
+            this.compiledWidth += xOffset * 1.8;
+        }
+        this.appWidth = 'calc(35% + ' + String(this.compiledWidth) + 'px)';
     }
 
     private addScore() {

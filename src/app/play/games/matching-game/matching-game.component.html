@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="game-frame-outer" #appScreen [ngStyle]="{'font-size': appFontSize}">
+    <div class="game-frame-outer" #appScreen [ngStyle]="{'font-size': appFontSize, 'width': appWidth}">
       <div class="game-frame-inner">
         <app-game-overlay (closedSignal)="onToggleOverlay()" [message]="overlayMessage" *ngIf="overlay">
         </app-game-overlay>
@@ -31,6 +31,6 @@
         </div>
       </div>
     </div>
-    <app-game-settings [ngStyle]="{'font-size': appFontSize}"></app-game-settings>
+    <app-game-settings [ngStyle]="{'font-size': appFontSize}" (sizeChanged)="onSizeChanged($event)"></app-game-settings>
   </div>
 </div>

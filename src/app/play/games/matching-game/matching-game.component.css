@@ -13,9 +13,8 @@ h4 {
 
 .game-frame-outer {
     background-color: #f9fafb;
-    /* max-width: 440px;
-    width: 80%; */
     width: 80%;
+    min-width: 80%;
     
     /* border-radius: 5px; */
     border-radius: 1.136%/1%;
@@ -28,6 +27,7 @@ h4 {
     .game-frame-outer {
         width: 35%;
         min-width: 400px;
+        max-width: 80%;
     }
     
 }
