@@ -142,7 +142,7 @@ export class MatchingGameComponent implements OnInit, OnDestroy {
                 this.appScreenSize = this.appScreen.nativeElement.offsetWidth;
                 this.appFontSize = String(this.appScreenSize / 440) + 'rem';
             }
-        }, 200);
+        }, 20);
     }
 
     private minusScore() {
